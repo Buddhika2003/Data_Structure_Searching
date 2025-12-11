@@ -18,7 +18,7 @@ public class BinarySearchTree{
             root = insertRec(root,value);
         }
 
-        public void insertRec(Node root,int value){
+        public Node insertRec(Node root,int value){
             if(root == null){
                 root = new Node(value);
                 return root;
@@ -34,7 +34,7 @@ public class BinarySearchTree{
         public boolean search(int value){
             return searchRec(root,value);
         }
-        public boolean serachRec(Node root,int value){
+        public boolean searchRec(Node root,int value){
             if(root == null){
                 return false;
             }
@@ -46,7 +46,7 @@ public class BinarySearchTree{
             if(value < root.data){
                 return searchRec(root.left,value);
             }else{
-                reurn searchRec(root.right,value);
+                return searchRec(root.right,value);
             }
 
         }
@@ -73,5 +73,26 @@ public class BinarySearchTree{
                 postOrder(root.right);
                 System.out.print(root.data + " ");
             }
+        }
+        public static void main(String[] args){
+            BinarySearchTree tree = new BinarySearchTree();
+           int[] values = {12 , 3, 23 , 45 , 18 , 7 , 9};
+           for(int v : values){
+            tree.insert(v);
+           }
+
+            System.out.println("Inorder traversal:");
+            tree.inOrder(tree.root);
+            System.out.println();
+
+            System.out.println("Preorder traversal:");
+            tree.preOrder(tree.root);
+            System.out.println();
+
+            System.out.println("Postorder traversal:");
+            tree.postOrder(tree.root);
+            System.out.println();
+
+           
         }
 }
