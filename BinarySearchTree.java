@@ -93,6 +93,8 @@ public class BinarySearchTree{
             tree.postOrder(tree.root);
             System.out.println();
 
+        System.out.println("Search for 18: " + tree.search(18));
+        System.out.println("Search for 99: " + tree.search(99));
            
         }
 }
